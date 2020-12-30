@@ -1,4 +1,7 @@
 package com.example.apirest.demoapirestspring.model;
+import org.springframework.format.annotation.DateTimeFormat;
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -8,7 +11,6 @@ import lombok.Data;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 
-import java.util.Date;
 
 @Data
 @Entity
@@ -16,12 +18,17 @@ public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @Column(nullable = false)
     private String nome;
+
     @Column(nullable = false)
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date dataNascimento;
+
     @Column(nullable = false)
     private String cpf;
+
     @Column(nullable = false)
     private String email;
 
