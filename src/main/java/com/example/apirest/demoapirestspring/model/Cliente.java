@@ -2,6 +2,10 @@ package com.example.apirest.demoapirestspring.model;
 import org.springframework.format.annotation.DateTimeFormat;
 import java.util.Date;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+
+import org.hibernate.validator.constraints.br.CPF;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -20,16 +24,22 @@ public class Cliente {
     private Long id;
 
     @Column(nullable = false)
+    @NotEmpty
     private String nome;
 
     @Column(nullable = false)
     @DateTimeFormat(pattern = "dd/MM/yyyy")
+    @NotEmpty
     private Date dataNascimento;
 
     @Column(nullable = false)
+    @CPF
+    @NotEmpty
     private String cpf;
 
     @Column(nullable = false)
+    @Email
+    @NotEmpty
     private String email;
 
     public Long getId() {
