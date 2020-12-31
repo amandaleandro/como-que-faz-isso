@@ -32,14 +32,14 @@ public class Cliente {
     @NotEmpty
     private Date dataNascimento;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique=true)
     @CPF
-    @NotEmpty
+    @NotEmpty(message = "CPF Invalido")
     private String cpf;
 
-    @Column(nullable = false)
+    @Column(nullable = false,unique=true)
     @Email
-    @NotEmpty
+    @NotEmpty(message = "Email invalido")
     private String email;
 
     public Long getId() {
